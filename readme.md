@@ -3,8 +3,13 @@ OCoffee est un projet pédagogique dont le but est de créer une application Web
 Ce site permet la consultation des différentes sortes de café que propose la boutique.
 Il permet également aux administrateurs d'ajouter de nouveaux cafés.
 
-
+## Page d'accueil:
 ![Presentation](/public/images/captures/1_Accueil.png)
+
+  
+  
+Le site est **TEMPORAIREMENT** disponible à cette adresse: 
+[Lien vers OCofee](https://ocoffee-kagt.onrender.com/)
 
 
 ## Technologie utilisée:
