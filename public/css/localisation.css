@@ -1,0 +1,21 @@
+#map { 
+    height: 60vh; 
+    border: solid 5px var(--primary-color);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    Z-index: 0; /*under the Burger Menu */
+}
+
+.divReturnButton {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+@media (min-width: 768px) {
+    
+    #map { 
+        height: 55vh; 
+    } 
+}
+

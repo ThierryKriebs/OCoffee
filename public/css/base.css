@@ -1,0 +1,146 @@
+
+
+:root {
+    --primary-color : #3e1e04;
+    --secondary-color : #f3e9dc;
+    --third-color : #f7dbb9;
+    --fifth-color : #994e10;
+
+    --logo-height : 4rem;
+
+}
+
+/* design: mobile first */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    color:var(--secondary-color); 
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+
+    transition: color 250ms ease-in, background 250ms ease-in, transform 250ms ease-in;
+}
+
+.btn:hover {
+    text-decoration:solid ;
+    font-weight: bold;
+    transform: scale(1.1);
+    background-color: var(--fifth-color);
+}
+
+h1, h2{
+    color: var(--primary-color);
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    margin: 0 auto;
+    
+    /* background-color: var(--secondary-color); */
+    background: linear-gradient(var(--secondary-color) 10%, var(--primary-color) 100%);
+    /* border: solid 10px var(--primary-color); */
+    border-top: solid 10px var(--primary-color);
+    border-left: solid 10px var(--primary-color);
+    border-right: solid 10px var(--primary-color);
+
+    min-height: 100vh;
+    border-radius: 30px 30px 0 0;    
+}
+
+
+/* Main content */
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    padding: 0.5rem;
+    padding-top: 80px;
+
+    margin: 0.2rem;
+    
+}
+
+/* home.ejs AND catalogue.ejs */
+.sectionProducts{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.all_products{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+}
+
+.product {
+    border-radius: 5px 5px 5px 5px; 
+    
+    background: linear-gradient(var(--third-color) 75%, var(--primary-color) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding-bottom: 0.5rem;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+.product img {
+    border-radius: 5px 5px 0 0; 
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit:cover;
+}
+
+
+/*Tablette and small computer*/
+@media (min-width: 768px) {
+    
+    .main {
+        padding-top: 0px;
+    }
+
+    .all_products{
+        /* 2 column with same size */
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1rem;
+    }
+}
+
+/* Style applicate when Screen has minimum 992px large => Big Monitor */
+@media (min-width: 992px) {
+    #container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .presentation, .products{
+        margin: 0.8rem;
+    }
+    
+    .main {
+        padding-top: 0px;
+    }
+
+    .product-filter {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .all_products{
+        /* 3 column with same size */
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 1rem;
+    }   
+}

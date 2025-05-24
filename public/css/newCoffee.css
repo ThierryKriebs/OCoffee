@@ -1,0 +1,97 @@
+.coffee-form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* width: 400px; */
+
+    background: linear-gradient(var(--third-color) 0%, var(--fifth-color) 100%);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .coffee-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var( --primary-color);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var( --primary-color);
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .divRadio {
+    display: flex;
+    align-items: center;
+    width: 75px;
+    padding: 5px;
+  }
+
+  .divRadio input {
+    height: 1.2rem;
+  }
+
+  .divRadio label {
+    margin: 0;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    color: var( --primary-color);
+    background-color: var( --third-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 250ms ease-in, background 250ms ease-in;
+  }
+  
+  .submit-button:hover {
+    color:var(--third-color); 
+    background-color: var(--fifth-color);
+  }
+
+  .divReturnButton {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  /*For the Button Return in coffeeConfirmation.ejs*/
+  .divReturnButton {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+  
+  

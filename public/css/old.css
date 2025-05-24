@@ -1,0 +1,289 @@
+
+/* TEMPORAIRE AVANT menu Burger */
+
+:root {
+    --primary-color : #3e1e04;
+    --secondary-color : #f3e9dc;
+    --third-color : #f7dbb9;
+}
+/* design: mobile first */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.btn {
+    /* text color */
+    color:var(--secondary-color); 
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 250ms ease-in, background 250ms ease-in, transform 250ms ease-in;
+}
+
+.btn-footer {
+    /* text color */
+    color:var(--primary-color); 
+    background-color: var(--third-color);
+    font-size: 1rem;
+}
+
+.btn:hover {
+    text-decoration:solid ;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+.btn-footer:hover {
+    text-decoration:solid ;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+h1, h2{
+    color: var(--primary-color);
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    margin: 0 auto;
+    /* border: solid 2px rgb(46, 216, 60); */
+    background-color: var(--secondary-color);
+    border: solid 10px var(--primary-color);
+
+    min-height: 100vh;
+}
+
+/* header content */
+.header {
+    display: flex;
+    flex-direction: column;
+    /* border: solid 2px red; */
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+/* logo and title h1 */
+.header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.header .logo img{
+  width: 4rem;
+}
+
+.header .menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    /* border: solid 2px blue; */
+}
+
+.header .menu li {
+    /*Only for the animation button*/
+    display: flex; 
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+
+/* Main content */
+.main{
+    /* border: solid 2px red; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.presentation, .products{
+    /* border: solid 2px blue; */
+    margin: 0.2rem;
+    
+}
+
+.presentation-content {
+    border: 3px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--third-color);
+    padding: 0.5rem;
+}
+
+.presentation .presentation__text{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.presentation .presentation__img{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    /* border: solid 1px red; */
+    margin: 0.2rem;
+}
+
+.sectionProducts{
+    /* border: solid 2px blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.product-filter {
+    display: flex;
+    flex-direction: column;
+    /* height: 1rem; */
+}
+/* Method1
+.titleWithBackgroundImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-image: url("../images/coffees/100955890.png");
+    border-radius: 5px;
+    background-position: center;
+}
+
+.titleWithBackgroundImg h2{
+    font-size: 2.5rem;
+    color: var(--third-color);
+} */
+
+/* Method:2 */
+.titleWithBackgroundImg {
+    position: relative;
+    height: 300px;
+}
+
+.titleWithBackgroundImg h2{
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* border: solid 1px red; */
+    width:100%;
+    text-align: center;
+}
+
+.titleWithBackgroundImg img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* height: 300px; */
+    object-fit:cover;
+    opacity: 0.3;
+    border-radius: 15px;
+    width: 100%; /* Width image 100% from perent */
+    height: 100%; 
+}
+
+.product-filter select {
+    background-color: var(--secondary-color);
+    background-size: cover; 
+    border: solid 3px var(--primary-color);
+    border-radius: 5px;
+    height: 3rem;
+}
+
+.all_products{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+}
+
+.product {
+    border: 3px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--third-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.product img {
+    width: 350px;
+    height: 350px;
+    object-fit:cover;
+    border-radius: 5px;
+}
+
+.divForButtonAllProducts {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+
+
+.footer{
+    /* border: solid 2px pink; */
+    display: flex;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer p span {
+    color: var(--third-color);
+    font-weight: bold;
+}
+
+
+
+/* Style applicate when Screen has minimum 700px large => Tablet, Laptop */
+@media (min-width: 700px) {
+    #container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .presentation, .products{
+        margin: 0.8rem;
+    }
+    .header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header .logo {
+        margin-left: 2rem;
+    }
+
+    .header .menu {
+        flex-direction: row;
+        margin-right: 3rem;
+    }
+
+    .product-filter {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .all_products{
+        /* 3 column with same size */
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 1rem;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content:space-around;
+        align-items: center;
+    }
+
+
+}

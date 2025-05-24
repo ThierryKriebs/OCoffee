@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('../partials/head') %> 
+
+        <title>OCoffee - contact</title>
+
+         <!-- Style -->
+         <link rel="stylesheet" href="/css/contact.css">
+         
+         
+    </head>
+
+    <body>
+        <div id="container">
+
+        <header class="header">
+            <%- include('../partials/header') %>
+        </header>
+        
+        <main class="main">
+            <section class="contact">
+               <div><%- message %> <%= urlOCoffee %> </div>
+            </section>
+        
+            <div class="divReturnButton">
+                <a href="/contact" class="btn">Retour au formulaire de contact</a>
+            </div>
+
+            <div class="divReturnButton">
+                <a href="/" class="btn">Accueil</a>
+            </div>
+        </main>
+               
+        <%- include('../partials/footer') %>
+    </body>
+</html>

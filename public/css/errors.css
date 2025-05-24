@@ -1,0 +1,15 @@
+/*Only for 404*/
+.divForButtonReturn {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+.div-img-404 {
+    display: flex;
+    justify-content: center;
+}
+.img-404 {
+    max-width: 600px;
+    min-width: 300px;
+    border-radius: 30px;
+}

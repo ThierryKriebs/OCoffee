@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('../partials/head') %> 
+
+        <title>OCoffee - Page introuvable</title>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="/css/errors.css">
+    </head>
+
+    <body>
+        <div id="container">
+
+        <header class="header">
+            <%- include('../partials/header') %>
+        </header>
+
+        <main class="main">
+            <h1>Page non trouvée</h1>
+            
+            <p>Oups ! Vous êtes perdu ?</p>
+
+            <div class ="divForButtonReturn">
+                <a href="/" class="btn">Retour à l'accueil</a>
+            </div>
+
+            <div class="div-img-404">
+                <img src="/images/404.jpg" class="img-404" alt="café renversé">
+            </div>
+        </main>
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>

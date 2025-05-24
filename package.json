@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "eslint": "^9.27.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.0",
+    "pg": "^8.16.0"
+  },
+  "name": "s09-projet-ocoffee-thierrykriebs",
+  "version": "1.0.0",
+  "description": "## Site sur le café, révision depuis début de la formation",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "psql -U o_coffee -d o_coffee -f ./data/create-tables.sql",
+    "db:seed": "psql -U o_coffee -d o_coffee -f ./data/seed-tables.sql",
+    "db:reset": "npm run db:create && npm run db:seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Gilgamesh/S09-projet-ocoffee-ThierryKriebs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Gilgamesh/S09-projet-ocoffee-ThierryKriebs/issues"
+  },
+  "homepage": "https://github.com/O-clock-Gilgamesh/S09-projet-ocoffee-ThierryKriebs#readme"
+}

@@ -1,0 +1,68 @@
+/*Only for catalogue.html Now still useful? check it out!*/
+.divForButtonAllProducts {
+    display: flex;       /*Only for the animation button*/
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+/* Catalogue.html Img in Background with Title Method2:*/
+.titleWithBackgroundImg {
+    position: relative;
+    height: 300px;
+}
+
+.titleWithBackgroundImg h2{
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    text-align: center;
+}
+
+.titleWithBackgroundImg img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.3;
+    border-radius: 15px;
+    width: 100%; /* Width image 100% from perent */
+    height: 100%; 
+}
+
+
+/* Catalogue.html Img in Background with Title Method1:
+.titleWithBackgroundImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-image: url("../images/coffees/100955890.png");
+    border-radius: 5px;
+    background-position: center;
+}
+
+.titleWithBackgroundImg h2{
+    font-size: 2.5rem;
+    color: var(--third-color);
+} */
+
+.product-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-filter select {
+    background-color: var(--secondary-color);
+    background-size: cover; 
+    border: solid 3px var(--primary-color);
+    border-radius: 5px;
+    height: 3rem;
+}
+
+/* Javascript uses this class to make caffees disappear */
+.product-display-none {
+    display: none;
+}

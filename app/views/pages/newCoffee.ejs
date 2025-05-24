@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('../partials/head') %> 
+
+        <title>OCoffee - localisation de nos produits</title>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="/css/newCoffee.css">
+    </head>
+
+    <body>
+        <div id="container">
+
+        <header class="header">
+            <%- include('../partials/header') %>
+        </header>
+        
+        <main class="main">
+            <!-- Modify class from active link in the menubar -->
+            <script> 
+                //Defer does not work!
+                document.addEventListener('DOMContentLoaded', function() {
+                    addActiveLinkMenu("#lien-newCoffee");
+                });
+            </script>
+            
+            <section class="newCoffee">
+                <h2>Ajouter un nouveau café</h2>
+
+                <form  class="coffee-form" method = "POST" action="/newCoffee" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="name"> Nom(*) :</label>
+                        <input type="text" id = "name" name = "name" placeholder = "Espresso" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reference">Reference(*) :</label>
+                        <input type="text" id = "reference" name = "reference" placeholder = "100955890"   minlength="9"
+                        maxlength="9" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country_id">Pays(*) :</label>
+                        <select name="country_id" id="country_id" required>
+                            <option value="" disabled selected>Sélectionner un pays</option>
+
+                            <% country.forEach(oneCountry => { %>
+                                <option value= <%= oneCountry.id %> ><%= oneCountry.name %></option> >
+                            <% }) %>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Prix (€) :</label>
+                        <input type="text" id = "price" name = "price" placeholder = "20">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="characteristic_id">Charactéristique principale(*) :</label>
+                        <select name="characteristic_id" id="characteristic_id" required>
+                            
+                            <option value="" disabled selected>Sélectionner la caractéristique principale</option>
+                            <% characteristics.forEach(oneCharacteristic => { %>
+                                <option value= <%= oneCharacteristic.id %> ><%= oneCharacteristic.name %></option> >
+                            <% }) %>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <fieldset class="fieldsetRadioButton">
+                            <legend>Disponibilité du café :</legend>
+                            <div class="divRadio">
+                                <input type="radio" name="disponibility" id="dispoOui" value = "true">
+                                <label for="dispoOui">Oui</label>
+                            </div>
+                            
+                            <div class="divRadio">
+                                <input type="radio" name="disponibility" id="dispoNon" value = "false" checked>
+                                <label for="dispoNon">Non</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description :</label>
+                        <textarea name="description" id="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filePhotoCoffee">Photo :</label>
+                        <input type="file" name="filePhotoCoffee" id="filePhotoCoffee"/>
+                    </div>
+
+                    <button type="submit" class="submit-button">Enregistrer</button>
+                </form>
+            </section>
+
+            <div class ="divReturnButton">
+                <a href="/" class="btn">Retour à l'accueil</a>
+            </div>
+
+        </main>
+               
+        <%- include('../partials/footer') %>
+    </body>
+</html>

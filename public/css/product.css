@@ -1,0 +1,112 @@
+
+/* de Catalogue.html Img in Background with Title Method2:*/
+.productPresentation {
+    position: relative;
+    height: 300px;
+}
+
+.productPresentation h2{
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    text-align: center;
+}
+
+.productPresentation img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.4;
+    border-radius: 15px;
+    width: 100%; /* Width image 100% from perent */
+    height: 100%; 
+}
+
+
+.productDetails {
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--third-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Styles de base pour le tableau */
+/* Styles de base pour le tableau */
+table {
+  width: 100%;
+  border-collapse: collapse; /* delete space beetween border column*/
+  margin: 1rem 0; 
+
+  /* overflow: hidden;  */
+  /* Cache tout ce qui dépasse des bordures arrondies */
+}
+
+/* Style pour les en-têtes de tableau */
+
+thead th {
+  text-align: center;
+  /* font-size: 0.8rem; */
+}
+thead th span {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+/* caption {
+  text-align: center;
+} */
+
+th {
+  /* background-color: #f2f2f2; */
+  text-align: left;
+  padding: 0.8rem;
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+td {
+  padding: 0.8rem;
+  border-bottom: 2px solid var(--primary-color); 
+}
+
+/* Style ofr even line */
+tr:nth-child(even) {
+  background-color: var(--secondary-color);
+}
+
+/* tr:hover {
+  background-color: #f1f1f1; 
+} */
+
+
+/* Rounded edge */
+th:first-child {
+  border-top-left-radius: 5px;
+}
+
+th:last-child {
+  border-top-right-radius: 5px;
+}
+
+/* Last Line Rounded edge */
+tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+.catalogue-button{
+  display: flex;       /*Only for the animation button*/
+  gap: 0.5rem;
+  padding: 0 1rem;
+}

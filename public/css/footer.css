@@ -1,0 +1,41 @@
+
+
+.btn-footer {
+    color:var(--primary-color); 
+    background-color: var(--third-color);
+    font-size: 1rem;
+
+    
+    border-radius: 5px;
+    cursor: pointer;
+    
+    padding: 5px 10px;
+    text-decoration: none;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+
+    transition: color 250ms ease-in, background 250ms ease-in;
+}
+
+.btn-footer:hover {
+    text-decoration:solid ;
+    color:var(--third-color); 
+    background-color: var(--fifth-color);
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.footer p span {
+    color: var(--third-color);
+    font-weight: bold;
+}

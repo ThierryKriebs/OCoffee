@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/reset.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    
+    <script src="app.js" defer></script>
+
+    <title>OCoffee catalogue</title>
+</head>
+<body>
+    <div id="container">
+        <header class="header">
+            <div class="menu-burger" id="menuBurger">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+
+            <div class="logo">
+                <img src="./public/images/logo.svg" class="logo__img" alt="OCoffee" />
+                <h1 class="logo__title">OCoffee</h1>
+            </div>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="menu-ul">
+                    <li class="menu-item">
+                        <a class="btn" href="./index.html">Accueil</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="btn" href="./catalogue.html">Catalogues</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="btn" href="#">Boutiques</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        
+        <main class="main">
+            <section class="presentation">
+                <div class="titleWithBackgroundImg">
+                    <h2>Notre catalogue </h2>
+                    <img src="./public/images/coffees/958090105.png" alt="Image representation catalogue">
+                </div> 
+                
+                
+                <!-- <img src="./public/images/coffees/327302954.png" alt="Image representation catalogue">                -->
+                
+            </section>
+    
+            <section class="sectionProducts">
+               
+
+                <div class = "product-filter">
+                    <h2>Tous nos produits</h2>
+                    <select name="categoryFilter" id="categoryFilter">Filtrer par catégorie
+                        <option value="">--Sélectionner une catégorie</option>
+                        <option value="Corsé" selected>Tous les produits</option>
+                        <option value="Corsé">Corsé</option>
+                        <option value="Acide">Acide</option>
+                        <option value="Fruité">Fruité</option>
+                        <option value="Doux">Doux</option>
+                        <option value="Épicé">Épicé</option>
+                        <option value="Épicé">Chocolaté</option>
+                    </select>
+                </div>
+                
+                <div class="all_products">
+                    <article class="product">
+                        <img src="./public/images/coffees/100955890.png" alt="product__nameOfProduct1">
+                        <p class="product-title"> Espresso</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/100955894.png" alt="product__nameOfProduct2">
+                        <p class="product-title"> Columbian</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/105589090.png" alt="product__nameOfProduct3">
+                        <p class="product-title"> Columbian</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+
+                    <article class="product">
+                        <img src="./public/images/coffees/100955890.png" alt="product__nameOfProduct1">
+                        <p class="product-title"> Ethiopian Yirgacheffe</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/100955894.png" alt="product__nameOfProduct2">
+                        <p class="product-title"> Santos</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/105589090.png" alt="product__nameOfProduct3">
+                        <p class="product-title"> Guatemalan Antigua</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+
+
+                    <article class="product">
+                        <img src="./public/images/coffees/100955890.png" alt="product__nameOfProduct1">
+                        <p class="product-title"> Kenyan AA</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/100955894.png" alt="product__nameOfProduct2">
+                        <p class="product-title"> Sumatra Mandheling</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+    
+                    <article class="product">
+                        <img src="./public/images/coffees/105589090.png" alt="product__nameOfProduct3">
+                        <p class="product-title"> Costa Rican Tarrazu</p>
+                        <a href="#" class="btn">Découvrir</a>
+                    </article>
+                </div>
+
+                <div class="divForButtonAllProducts">
+                    <a href="#" class="btn">Voir tout</a>
+                </div>
+                
+
+            </section>
+        </main>
+        
+
+        <footer class="footer">
+            <p>
+                OCoffee  copyright...
+            </p>
+            <p> 
+                Réalisé par: <span>Agence Web OClock </span> 
+            </p>
+            
+            <a href="#" class="btn btn-footer"> Mentions légales</a>
+        </footer>
+
+    </div>
+    
+</body>
+</html>
