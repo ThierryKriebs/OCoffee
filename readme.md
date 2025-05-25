@@ -4,19 +4,15 @@ Ce site permet la consultation des différentes sortes de café que propose la b
 Il permet également aux administrateurs d'ajouter de nouveaux cafés.
 
 ## Page d'accueil:
-![Presentation](/public/images/captures/1_Accueil.png)
+![Présentation](/public/images/captures/1_Accueil.png)
 
   
-  
-Le site est **TEMPORAIREMENT** disponible à cette adresse: 
-[Lien vers OCofee](https://ocoffee-kagt.onrender.com/)
 
-
-## Technologie utilisée:
-Ce site a été développé avec l'environnement Node et le framework Express. 
+## Technologies utilisées:
+Ce site a été développé avec l'environnement Node et le Framework Express. 
 
 Il utilise les technologies suivantes:
-- NodeJs avec le framework Express
+- NodeJs avec le Framework Express
 - Une base de données PostgreSQL pour la gestion des cafés, des pays, des catégories de cafés et des contacts
 - Le package Node Leaflet pour la gestion de la carte du monde interactive
 - Le package Multer ainsi que Node fs, pour le téléchargement et la gestion des images (recherche, renommage…)
@@ -59,16 +55,16 @@ pathCofeeImage=public/images/coffees
 
 ## Quelques rendus:
 ### Page d'accueil avec les 3 derniers cafés ajoutés:
-![Presentation](/public/images/captures/1_Accueil.png)
+![Accueil](/public/images/captures/1_Accueil.png)
 
 ### Page catalogue:
-![Presentation](/public/images/captures/2_Catalogue.png)
+![Catalogue](/public/images/captures/2_Catalogue.png)
 
 ### Carte interactive:
-![Presentation](/public/images/captures/3_carte.png)
+![Carte](/public/images/captures/3_carte.png)
 
 ### Formulaire d'ajout de café:
-![Presentation](/public/images/captures/4_Ajouter_un_café-2.png)
+![Ajouter un café](/public/images/captures/4_Ajouter_un_café-2.png)
 
 ### Version mobile:
-![Presentation](/public/images/captures/5_Version_mobile.png)
+![Version mobile](/public/images/captures/5_Version_mobile.png)
