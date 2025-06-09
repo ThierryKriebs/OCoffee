@@ -38,11 +38,7 @@ async function getGPSCoordonates() {
   });
 }
 
-
-
-
-// var map = L.map('map').setView([51.505, -0.09], 13);
-var map = L.map('map').setView([48.862725, 2.287592], 2); //France coordonate
+let map = L.map('map').setView([48.862725, 2.287592], 2); //France coordonate
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -50,19 +46,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-// map.on('click', onMapClick);
+//Only activate if wee want see a coordonate
+// let popup2 = L.popup();
 
 // function onMapClick(e) {
-//   alert("You clicked the map at " + e.latlng);
+//   popup2
+//     .setLatLng(e.latlng)
+//     .setContent("Vous avez cliqué sur la carte à la coordonnée: " + e.latlng.toString())
+//     .openOn(map);
 // }
 
-var popup2 = L.popup();
-
-function onMapClick(e) {
-  popup2
-    .setLatLng(e.latlng)
-    .setContent("You clickeddddd the map at " + e.latlng.toString())
-    .openOn(map);
-}
-
-map.on('click', onMapClick);
+// map.on('click', onMapClick);

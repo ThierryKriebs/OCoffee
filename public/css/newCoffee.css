@@ -80,6 +80,10 @@
     color:var(--third-color); 
     background-color: var(--fifth-color);
   }
+  
+  #div_idCoffee {
+    display: none;
+  }
 
   .divReturnButton {
     display: flex;       /*Only for the animation button*/

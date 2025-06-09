@@ -79,19 +79,33 @@
     top: var(--logo-height);
     left: 0;
     width: 100%;
+    height: 50%;
     background-color: var(--secondary-color);
     
-    border-left: solid 10px var(--primary-color);;
+    border-left: solid 10px var(--primary-color);
     border-right: solid 10px var(--primary-color);
     border-bottom: solid 10px var(--primary-color);
 
     display: none; /* Default not displayed */
 
+    
+
+  }
+
+  /* Bonus : extra animation */
+@keyframes menu-slide-in {
+    from {
+      height: 0%;
+      background-color: var(--secondary-color);
+      /* padding: 4rem 0rem;
+      color: var(--color-dark); */
+    }
   }
 
   /* Javascript add this class with Burger button */
   .nav-menu-display-on {
     display : block;
+    animation: menu-slide-in .3s;
 }
 
 
