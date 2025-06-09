@@ -72,5 +72,6 @@ pathCofeeImage=public/images/coffees
 ### Formulaire d'ajout de café:
 ![Ajouter un café](/public/images/captures/4_Ajouter_un_café-2.png)
 
+
 ### Version mobile:
 ![Version mobile](/public/images/captures/5_Version_mobile.png)
