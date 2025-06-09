@@ -63,6 +63,12 @@ pathCofeeImage=public/images/coffees
 ### Carte interactive:
 ![Carte](/public/images/captures/3_carte.png)
 
+### Interface pour le CRUD des cafés:
+![CRUD des cafés](/public/images/captures/6_CRUD_Cafe.png)
+
+### Filtre de recherche pour l'interface de CRUD des cafés:
+![Filtre pour CRUD des cafés](/public/images/captures/7_Filtre_pour_CRUD_Cafe.png)
+
 ### Formulaire d'ajout de café:
 ![Ajouter un café](/public/images/captures/4_Ajouter_un_café-2.png)
 
