@@ -22,79 +22,80 @@
         
         <div id="container">
 
-        <header class="header">
-            <%- include('../partials/header') %>
-        </header>
-        
-        <main class="main">
+            <header class="header">
+                <%- include('../partials/header') %>
+            </header>
             
-            <section class="productPresentation">
-                    <h2><%= coffee.name %></h2>
-                    <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
-            </section>
-    
-            <section class="productDetails">
+            <main class="main">
+                
+                <section class="productPresentation">
+                        <h2><%= coffee.name %></h2>
+                        <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
+                </section>
+        
+                <section class="productDetails">
 
-                <table>
-                    <!-- <caption>
-                        Le café:
-                      </caption> -->
-                    <thead>
-                        <tr>
-                            <th colspan="2">Le café <span> <%= coffee.name %></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Description :</th>
-                            <td><%= coffee.description %></td>
-                        </tr>
+                    <table>
+                        <!-- <caption>
+                            Le café:
+                        </caption> -->
+                        <thead>
+                            <tr>
+                                <th colspan="2">Le café <span> <%= coffee.name %></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Description :</th>
+                                <td><%= coffee.description %></td>
+                            </tr>
 
-                        <tr>
-                            <th>Référence :</th>
-                            <td><%= coffee.reference %></td>
-                        </tr>
+                            <tr>
+                                <th>Référence :</th>
+                                <td><%= coffee.reference %></td>
+                            </tr>
 
-                        <tr>
-                            <th>Origine :</th>
-                            <td><%= coffee.country %></td>
-                        </tr>
+                            <tr>
+                                <th>Origine :</th>
+                                <td><%= coffee.country %></td>
+                            </tr>
 
-                        <tr>
-                            <th>Prix au kilo :</th>
-                            <td><%= coffee.price /100 %> €</td>
-                        </tr>
+                            <tr>
+                                <th>Prix au kilo :</th>
+                                <td><%= coffee.price /100 %> €</td>
+                            </tr>
 
-                        <tr>
-                            <th>Caractéristique principale :</th>
-                            <td><%= coffee.characteristic %></td>
-                        </tr>
+                            <tr>
+                                <th>Caractéristique principale :</th>
+                                <td><%= coffee.characteristic %></td>
+                            </tr>
 
-                        <tr>
-                            <th>Disponible :</th>
-                            <td><% if (coffee.disponibility) { %>
-                                    <!-- Oui  -->
-                                    <span class="material-symbols-outlined">check_circle</span>
+                            <tr>
+                                <th>Disponible :</th>
+                                <td><% if (coffee.disponibility) { %>
+                                        <!-- Oui  -->
+                                        <span class="material-symbols-outlined">check_circle</span>
 
-                                <% } else {  %>
-                                    <!-- Non -->
-                                    <span class="material-symbols-outlined">cancel</span>
-                                <% }  %>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+                                    <% } else {  %>
+                                        <!-- Non -->
+                                        <span class="material-symbols-outlined">cancel</span>
+                                    <% }  %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
 
-            <div class="catalogue-button">
-                <a href="/catalogue" class="btn">Catalogue</a>
-            </div>
+                <div class="catalogue-button">
+                    <a href="/catalogue" class="btn">Catalogue</a>
+                </div>
 
-            <div class ="divForButtonReturn">
-                <a href="/" class="btn">Retour à l'accueil</a>
-            </div>
+                <div class ="divForButtonReturn">
+                    <a href="/" class="btn">Retour à l'accueil</a>
+                </div>
 
-        </main>
-        <%- include('../partials/footer') %>
+            </main>
+            <%- include('../partials/footer') %>
+        </div> <!-- close container -->
     </body>
 </html>

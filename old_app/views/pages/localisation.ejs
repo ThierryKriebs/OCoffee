@@ -27,28 +27,33 @@
 
         <div id="container">
 
-            <header class="header">
-                <%- include('../partials/header') %>
-            </header>
-            
-            <main class="main">
+        <header class="header">
+            <%- include('../partials/header') %>
+        </header>
+        
+        <main class="main">
+            <!-- Modify class from active link in the menubar -->
+            <script> 
+                //Defer does not work!
+                document.addEventListener('DOMContentLoaded', function() {
+                    addActiveLinkMenu("#lien-localisation");
+                });
+            </script>
+            <section class="presentation">
                 
-                <section class="presentation">
-                    
-                    <h2>Découvrez l'origine de nos cafées:</h2>
-                    <div id="map">
+                <h2>Découvrez l'origine de nos cafées:</h2>
+                <div id="map">
 
 
-                    </div>
+                </div>
 
-                    
-                    <div class ="divReturnButton">
-                        <a href="/" class="btn">Retour à l'accueil</a>
-                    </div>
-                </section>
-            </main>
+                
+                <div class ="divReturnButton">
+                    <a href="/" class="btn">Retour à l'accueil</a>
+                </div>
+            </section>
+        </main>
                
-            <%- include('../partials/footer') %>
-        </div> <!-- close container -->
+        <%- include('../partials/footer') %>
     </body>
 </html>

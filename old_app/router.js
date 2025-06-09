@@ -13,8 +13,7 @@ const upload = multer({
   dest: process.env.pathCofeeImage,
   
   fileFilter: (req, file, cb) => {
-    //If the file has a type image, we accept the file
-    if (file.mimetype.startsWith('image/')) { 
+    if (file.mimetype.startsWith('image/')) {
       cb(null, true); //We accept the file
 
     } else {
@@ -36,15 +35,10 @@ router.get('/coffeeByLocation/:countryId', mainController.listCoffeeByLocalisati
 router.get('/contact', mainController.contactPage); 
 router.post('/saveContact', mainController.saveContactPage); 
 
-/*Administration coffee*/
-router.get('/gestionCoffees', adminController.gestionCoffeesPage);
-router.post('/gestionCoffees', adminController.gestionCoffeesAction); //Delete one or more Coffees or or render updateCoffeeFormular
-
 router.get('/newCoffee', adminController.newCoffeePage); 
-router.post('/newCoffee',  upload.single('filePhotoCoffee'), adminController.newCoffeeSave); //Download IMG and call newCoffeeSave
+router.post('/newCoffee',  upload.single('filePhotoCoffee'), adminController.newCoffeeSave); 
 
-router.get('/updateCoffee', adminController.updateCoffeePage); 
-router.post('/updateCoffee', upload.single('filePhotoCoffee'), adminController.updateCoffeeSave);
+
 
 
 // on exporte le router 

@@ -9,8 +9,8 @@
          <!-- Style -->
          <link rel="stylesheet" href="/css/catalogue.css">
 
-           <!-- Scripts -->
-           <script defer src="/js/catalog.js"></script>
+         <!-- Scripts -->
+         <script defer src="/js/catalog.js"></script>
            
     </head>
 
@@ -24,63 +24,64 @@
         </script>
         <div id="container">
 
-        <header class="header">
-            <%- include('../partials/header') %>
-        </header>
+            <header class="header">
+                <%- include('../partials/header') %>
+            </header>
+            
+            <main class="main">
+                <section class="presentation">
+                    <div class="titleWithBackgroundImg">
+                        <h2>Notre catalogue </h2>
+                        <img src="/images/coffees/cataloguePresentation.png" alt="Image representation catalogue">
+                    </div> 
+                </section>
         
-        <main class="main">
-            <section class="presentation">
-                <div class="titleWithBackgroundImg">
-                    <h2>Notre catalogue </h2>
-                    <img src="/images/coffees/958090105.png" alt="Image representation catalogue">
-                </div> 
-            </section>
-    
-            <section class="sectionProducts">
+                <section class="sectionProducts">
 
-                <div class = "product-filter">
-                    <h2>Tous nos produits</h2>
-                    <select name="categoryFilter" id="categoryFilter">Filtrer par catégorie
-                        <option value="" disabled selected>Sélectionner une catégorie</option>
-                        <option value="Tous les produits" selected>Tous les produits</option>
-                        
-                        <% allCharacteristic.forEach(oneCharacteristic => { %>
-                            <option value= <%= oneCharacteristic.name %> ><%= oneCharacteristic.name %></option> 
+                    <div class = "product-filter">
+                        <h2>Tous nos produits</h2>
+                        <select name="categoryFilter" id="categoryFilter">Filtrer par catégorie
+                            <option value="" disabled selected>Sélectionner une catégorie</option>
+                            <option value="Tous les produits" selected>Tous les produits</option>
+                            
+                            <% allCharacteristic.forEach(oneCharacteristic => { %>
+                                <option value= <%= oneCharacteristic.name %> ><%= oneCharacteristic.name %></option> 
+                            <% }) %>
+                        </select>
+                    </div>
+                    
+                    <div class="all_products">
+                        <% coffees.forEach(coffee => { %>
+                            <article class="product">
+                                
+                                <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
+                                
+                                <p class="product-title"> <%= coffee.name %></p>
+                                <div class = "characteristic"><%= coffee.characteristic %></div> 
+                                <a href="/product/<%= coffee.id %>" class="btn">Découvrir</a>
+                            </article>
                         <% }) %>
-                    </select>
-                </div>
-                
-                <div class="all_products">
-                    <% coffees.forEach(coffee => { %>
-                        <article class="product">
-                            
-                            <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
-                            
-                            <p class="product-title"> <%= coffee.name %></p>
-                            <div class = "characteristic"><%= coffee.characteristic %></div> 
-                            <a href="/product/<%= coffee.id %>" class="btn">Découvrir</a>
+
+                        <!-- <article class="product">
+                            <img src="/images/coffees/100955890.png" alt="product__nameOfProduct1">
+                            <p class="product-title"> Espresso</p>
+                            <a href="/product/1" class="btn">Découvrir</a>
                         </article>
-                    <% }) %>
+                        -->
+                    </div> 
 
-                    <!-- <article class="product">
-                        <img src="/images/coffees/100955890.png" alt="product__nameOfProduct1">
-                        <p class="product-title"> Espresso</p>
-                        <a href="/product/1" class="btn">Découvrir</a>
-                    </article>
-                    -->
-                </div> 
+                    <div class="divForButtonAllProducts">
+                        <a href="/catalogue" class="btn">Voir tout</a>
+                    </div>
 
-                <div class="divForButtonAllProducts">
-                    <a href="/catalogue" class="btn">Voir tout</a>
-                </div>
-
-                <BR>
-                <div class="divForButtonAllProducts">
-                    <a href="/" class="btn">Accueil</a>
-                </div>
-            </section>
-        </main>
-               
-        <%- include('../partials/footer') %>
+                    <BR>
+                    <div class="divForButtonAllProducts">
+                        <a href="/" class="btn">Accueil</a>
+                    </div>
+                </section>
+            </main>
+                
+            <%- include('../partials/footer') %>
+        </div> <!-- close container -->
     </body>
 </html>

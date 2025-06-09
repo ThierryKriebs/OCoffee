@@ -9,7 +9,7 @@ const mainController = {
     try {
       let coffees = await dataMapper.getLastCoffee();
       
-      coffees = fileUtilities.searchAllImageFromSeveralCoffeesObjects(coffees);
+      coffees = fileUtilities.searchAllFileCoffeeName(coffees);
 
       res.render("pages/home", { coffees });
     }
@@ -25,7 +25,7 @@ const mainController = {
       const allCharacteristic = await dataMapper.getAllCharacteristic();
       
       let coffees = await dataMapper.getAllCoffee();
-      coffees = fileUtilities.searchAllImageFromSeveralCoffeesObjects(coffees);
+      coffees = fileUtilities.searchAllFileCoffeeName(coffees);
 
       res.render("pages/catalog", { allCharacteristic, coffees });
     }
@@ -47,7 +47,7 @@ const mainController = {
 
       let coffee = await dataMapper.getOneCoffeeById(id);
 
-      coffee = fileUtilities.searchAllImageFromSeveralCoffeesObjects(coffee);
+      coffee = fileUtilities.searchAllFileCoffeeName(coffee);
 
       if (coffee.length > 0) {
         res.render("pages/product", { coffee:coffee[0] });
@@ -100,7 +100,7 @@ const mainController = {
       }
 
       let coffees = await dataMapper.getAllCoffeeWithCountryId(countryId);
-      coffees = fileUtilities.searchAllImageFromSeveralCoffeesObjects(coffees);
+      coffees = fileUtilities.searchAllFileCoffeeName(coffees);
       const allCharacteristic = await dataMapper.getAllCharacteristic();
       
       res.render("pages/catalog", { allCharacteristic, coffees });

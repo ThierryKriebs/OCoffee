@@ -21,48 +21,49 @@
         
         <div id="container">
 
-        <header class="header">
-            <%- include('../partials/header') %>
-        </header>
+            <header class="header">
+                <%- include('../partials/header') %>
+            </header>
 
-        <main class="main">
-            <section class="presentation">
-                <h2 class="title">OCoffe, qui sommes nous? </h2>
-                <div class="presentation-content">
+            <main class="main">
+                <section class="presentation">
+                    <h2 class="title">OCoffe, qui sommes nous? </h2>
+                    <div class="presentation-content">
 
-                    <div class = "presentation-text-and-img">
-                        <p>
-                            Bienvenue dans notre boutique, où règne une ambiance chaleureuse et accueillante 
-                            qui éveille tous vos sens. Dès que vous franchissez la porte, vous êtes enveloppé 
-                            d'une douce symphonie d'arômes envoûtants de café fraîchement moulu.
-                        </p>
+                        <div class = "presentation-text-and-img">
+                            <p>
+                                Bienvenue dans notre boutique, où règne une ambiance chaleureuse et accueillante 
+                                qui éveille tous vos sens. Dès que vous franchissez la porte, vous êtes enveloppé 
+                                d'une douce symphonie d'arômes envoûtants de café fraîchement moulu.
+                            </p>
 
-                        <img src="/images/coffees/650753915.png" alt="Image de présentation des cafés de oCoffee">
-                    </div>
+                            <img src="/images/coffees/650753915.png" alt="Image de présentation des cafés de oCoffee">
+                        </div>
 
-                    <div class="divReturnButton">
-                        <a class="btn" href="/catalogue">Voir le catalogue</a>
-                    </article>
-                    
-                </div>
-            </section>
-    
-            <section class="products">
-                <h2>Nouveautés</h2>
-                <div class="all_products">
-                    <% coffees.forEach(coffee => { %>
-                        <article class="product">
-                            <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
-                            <p class="product-title"> <%= coffee.name %></p>
-                            <a href="/product/<%= coffee.id %>" class="btn">Découvrir</a>
+                        <div class="divReturnButton">
+                            <a class="btn" href="/catalogue">Voir le catalogue</a>
                         </article>
-                    <% }) %>
-                    
-                </div>
-            </section>
-        </main>
+                        
+                    </div>
+                </section>
+        
+                <section class="products">
+                    <h2>Nouveautés</h2>
+                    <div class="all_products">
+                        <% coffees.forEach(coffee => { %>
+                            <article class="product">
+                                <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
+                                <p class="product-title"> <%= coffee.name %></p>
+                                <a href="/product/<%= coffee.id %>" class="btn">Découvrir</a>
+                            </article>
+                        <% }) %>
+                        
+                    </div>
+                </section>
+            </main>
 
-        <%- include('../partials/footer') %>
+            <%- include('../partials/footer') %>
+        </div> <!-- close container -->
     </body>
    
 </html>

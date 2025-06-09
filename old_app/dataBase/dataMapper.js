@@ -5,8 +5,7 @@ const dataMapper = {
     const query = {
       text: `SELECT coffee.*, ch.name AS characteristic, country.name AS country FROM "coffee" 
       JOIN "characteristic" ch ON coffee.characteristic_id = ch.id 
-      JOIN "country" ON coffee.country_id = country.id
-      ORDER BY "coffee"."name" ASC;`
+      JOIN "country" ON coffee.country_id = country.id;`
     };
     const results = await database.query(query);
     return results.rows;
@@ -36,37 +35,6 @@ const dataMapper = {
       values: [id]
     };
     const results = await database.query(query);
-    return results.rows;
-  },
-
-  async getseveralCoffeesByIds(allCoffeeId) {
-    
-    let requete = `SELECT coffee.*, ch.name AS characteristic, country.name AS country FROM "coffee" 
-      JOIN "characteristic" ch ON coffee.characteristic_id = ch.id 
-      JOIN "country" ON coffee.country_id = country.id 
-      WHERE "coffee"."id" IN (`;
-    
-    let reqParams = "";
-
-    if (Array.isArray(allCoffeeId)) {
-      for (let indexCoffee = 0; indexCoffee < allCoffeeId.length; indexCoffee++) {
-        reqParams += `$${indexCoffee + 1}, `;
-      }
-      reqParams = reqParams.substring(0, reqParams.length - 2); //delete the last ","
-    }
-    else {
-      reqParams = "$1";
-      allCoffeeId= [allCoffeeId];
-    }
-    
-    requete = requete + reqParams + ');';
-    console.log(requete)    ;
-    const query = {
-      text: requete,
-      values: allCoffeeId
-    };
-    const results = await database.query(query);
-    console.log("work!!");
     return results.rows;
   },
 
@@ -125,7 +93,6 @@ const dataMapper = {
     return {code: 1, error: "L'opération a réussie"};
   },
 
-
   async  setNewCoffee(name, reference, price, disponibility, description, country_id, characteristic_id) {
 
     //Verify that the coffee does not exist in the database:
@@ -145,7 +112,7 @@ const dataMapper = {
     }
 
     if (!price) price = 0;
-    else price = Math.round(price * 100);
+    else price = price * 100;
 
     //Verify that the country_id is convertible to number:
     if (isNaN(parseInt(country_id)) && country_id){
@@ -172,84 +139,6 @@ const dataMapper = {
 
     return {code: 1, error: "L'opération a réussie"};
   },
-
-
-  async deleteCoffees(allCoffeeId) {
-             
-    let requete = `DELETE FROM "coffee" WHERE "id" IN (`;
-    let reqParams = "";
-    let values = "";
-    let query = {};
-
-    //When several Id must be delete
-    if (Array.isArray(allCoffeeId)) {
-      for (let indexCoffee = 0; indexCoffee < allCoffeeId.length; indexCoffee++) {
-        reqParams += `$${indexCoffee + 1}, `;
-      }
-
-      reqParams = reqParams.substring(0, reqParams.length - 2); //delete the last ","
-
-      values = allCoffeeId;
-    }
-
-    //If only one Id must be delete
-    else {
-      reqParams = "$1";
-      values = [allCoffeeId];
-    }
-    
-    requete = requete + reqParams + ');';
-            
-    query = {
-      text: requete,
-      values: values
-    };
-
-    await database.query(query);
-    return {code: 1, error: "L'opération a réussie"};
-  },
-
-
-  async updateCoffee(id, name, reference, price, disponibility, description, country_id, characteristic_id) {
-        
-    //Verify that the price is convertible to number:
-    if (isNaN(parseInt(price)) && price){
-      return {code: -1, error: `Le prix est incorrect. Il doit être convertible en nombre. Enregistrement refusé`};
-    }
-
-    if (!price) price = 0;
-    else {
-      price = Math.round(price * 100);
-      console.log("prix final:" + price);
-    }
-
-    //Verify that the country_id is convertible to number:
-    if (isNaN(parseInt(country_id)) && country_id){
-      return {code: -1, error: `Le paramètre pays_id est incorrect. Il doit être convertible en nombre. Enregistrement refusé`};
-    }
-
-    //Verify that the characteristic_id is convertible to number:
-    if (isNaN(parseInt(characteristic_id)) && characteristic_id){
-      return {code: -1, error: `Le paramètre characteristic_id est incorrect. Il doit être convertible en nombre. Enregistrement refusé`};
-    }
-
-    //Verify that the disponibility is a boolean:
-    if (disponibility !== "true" && disponibility !== "false"){
-      return {code: -1, error: `Le paramètre disponibility est incorrect. Il doit être convertible en booléen. Enregistrement refusé`};
-    }
-
-    const query = {
-      text: `UPDATE "coffee" set "name"= $1, "reference" = $2, "price" = $3, "disponibility" = $4, "description" = $5, 
-      "country_id" = $6, characteristic_id =$7 
-       WHERE "id" = $8 RETURNING*;`,
-      
-      values: [name, reference, price, disponibility, description, country_id, characteristic_id, id]
-    };
-    await database.query(query);
-    
-
-    return {code: 1, error: "L'opération a réussie"};
-  }
 };
 
 export default dataMapper;

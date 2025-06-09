@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('../../partials/head') %> 
+         
+
+        <title>OCoffee - gestion des cafés</title>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="/css/gestionCoffee.css">    
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+        <!-- Scripts -->
+        <script defer src="/js/administrationCoffees/gestionCoffees.js"></script>
+    </head>
+
+    <body>
+        <!-- Modify class from active link in the menubar -->
+        <script> 
+            //Defer does not work!
+            document.addEventListener('DOMContentLoaded', function() {
+                addActiveLinkMenu("#lien-gestionCoffee"); //Add a class to this menu link for modify the appearance
+            });
+        </script>
+        
+        <div id="container">
+
+            <header class="header">
+                <%- include('../../partials/header') %>
+            </header>
+            
+            <main class="main">
+                
+                <div class ="divReturnButton">
+                    <a href="/" class="btn">Retour à l'accueil</a>
+                </div>
+
+                <section class="productDetails">
+                    
+                    <!-- Title and generals actions buttons -->
+                    <div class="titleAndOptions">
+                        <h2>Gestion des cafés</h2>
+
+                         <!-- Button for open the modal for filters function -->
+                        <button id="btnOpenModalForFilter">Filtrer</button>
+                        
+                        <select id="selectGeneralActions" name="selectGeneralActions" class="selectActions">...
+                            <option value="" selected disabled>...</option>
+                            <option value="add">Ajouter</option>
+                            <option value="generalDelete">Supprimer</option>
+                        </select>
+                    </div>
+
+
+                    <!-- La fenêtre modale -->
+                    <div id="modalForFilter" class="modal">
+                        <div class="modal-content">
+                            <span class="spanCloseModalForFilter">&times;</span> <!-- &times; => Code for display a X for close the modal -->
+                            
+                            <!-- Filters -->
+                            <div class="filters">
+                                <fieldset>
+                                    <legend>Filtres</legend>
+                                    
+                                    <!-- filter with name -->
+                                    <div class="subGroup"> 
+                                        <label for="filterWithName">Nom: </label>
+                                        <input type="text" id="filterWithName" name="filterWithName" placeholder="Entrer une partie d'un nom">
+                                    </div>    
+
+                                    <!-- filter with reference -->
+                                    <div class="subGroup">  
+                                        <label for="filterWithReference">Référence: </label>
+                                        <input type="text" id="filterWithReference" name="filterWithReference" placeholder="Entrer une partie d'une ref">
+                                    </div>    
+
+                                    <!-- filter with country_id -->
+                                    <div class="subGroup">  
+                                        <label for="filterWithCountry">Pays(*) :</label>
+                                        <select id="filterWithCountry" name="filterWithCountry">
+                                            <option value="" selected>Tous les pays</option>
+
+                                            <% country.forEach(oneCountry => { %>
+                                                <option value= <%= oneCountry.id %> ><%= oneCountry.name %></option> >
+                                            <% }) %>
+                                        </select>
+                                    </div>
+
+                                    <!-- filter with price -->
+                                    <div class="subGroupPriceFilter">
+                                        <div class="subGroup PriceFilterMax">
+                                            <label for="filterWithPriceMin">Prix min :</label>
+                                            <input type="number" id="filterWithPriceMin" name="filterWithPriceMin" placeholder="Prix minimum" min="1" max="100" step="0.01">
+                                        </div>
+
+                                        <div class="subGroup PriceFilterMin">
+                                            <label for="filterWithPriceMax">Prix max :</label>
+                                            <input type="number" id="filterWithPriceMax" name="filterWithPriceMax" placeholder="Prix maximum" min="1" max="100" step="0.01">
+                                        </div>
+                                    </div>
+
+                                    <!-- filter with characteristic_id -->
+                                    <div class="subGroup"> 
+                                        <label for="filterWithCharacteristic">Caractéristique :</label>
+                                        <select id="filterWithCharacteristic" name="filterWithCharacteristic">
+                                            <option value="" selected>Toutes</option>
+
+                                            <% characteristic.forEach(oneCharacteristic => { %>
+                                                <option value= <%= oneCharacteristic.id %> ><%= oneCharacteristic.name %></option> >
+                                            <% }) %>
+                                        </select>
+                                    </div>
+
+                                    <!-- filter with disponibility -->
+                                    <div class="subGroup"> 
+                                        <label for="filterWithDisponibility">Disponibilité :</label>
+                                        <select id="filterWithDisponibility" name="filterWithDisponibility">
+                                            <option value="" selected>Toutes</option>
+                                            <option value="true">Disponible</option>
+                                            <option value="false">Indisponible</option>
+                                        </select>
+                                    </div>
+
+                        
+                                    <div class="subGroup">  
+                                        <button onclick="reinitFilterCoffees()">Réinitialiser</button>
+                                    </div>    
+                                </fieldset>
+                            </div> <!-- end div filter -->
+                        </div>
+                    </div>
+
+                    <form  id ="coffee-form" class="coffee-form" method = "POST" action="/gestionCoffees">
+                        <input type="hidden" id="hiddenAction" name="hiddenAction" value=""><!-- Update with javascript Indicate the action from the formulaire (delete or modify) -->
+                        <input type="hidden" id="hiddenSelectId" name="hiddenSelectId" value=""><!-- Update with javascript Indicate the select button id that trigger formular -->
+                        <table id="tableCoffees">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" name="generalCheckbox" id="generalCheckbox" value="true"> </th>
+                                    <th class="col_id">Id </th> 
+                                    <th class="col_name sortable sort-asc" onclick="sortTableCoffees(2)" data-sort="asc">Nom</th> 
+                                    <th class="col_reference sortable" onclick="sortTableCoffees(3)">Référence</th> 
+                                    <th class="col_country sortable" onclick="sortTableCoffees(4)">Pays</th> 
+                                    <th class="col_price sortable" onclick="sortTableCoffees(5)">Prix (€)</th> 
+                                    <th class="col_characteristic sortable" onclick="sortTableCoffees(6)">Caractéristique</th>
+                                    <th class="col_disponibility">Dispo</th>
+                                    <th class="col_description" onclick="sortTableCoffees(8)">Description</th>
+                                    <th class="col_photo">Photo</th>
+                                    <th></th>
+                                    <!-- <th>Créé le</th> <td> coffee.created_at </td>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% coffees.forEach(coffee => { %>
+                                    <tr data-name = "<%= coffee.name %>" data-reference = "<%= coffee.reference %>" data-country = "<%= coffee.country_id %>"
+                                        data-price = "<%= coffee.price /100 %>" data-characteristic = "<%= coffee.characteristic_id %>" 
+                                        data-disponibility= "<%= coffee.disponibility %>">
+                                        <td><input type="checkbox" name="checkboxIdCoffee" id="checkboxIdCoffee_<%= coffee.id %>" value="<%= coffee.id %>"></td>
+                                        <td class="col_id"><%= coffee.id %></td>
+                                        <td class="col_name"><%= coffee.name %></td>
+                                        <td class="col_reference"><%= coffee.reference %></td>
+                                        <td class="col_country"><%= coffee.country %></td>
+                                        <td class="col_price"><%= coffee.price /100 %></td>
+                                        <td class="col_characteristic"><%= coffee.characteristic %></td>
+                                        <td class="col_disponibility"><% if (coffee.disponibility) { %>
+                                                <!-- Oui  -->
+                                                <span class="material-symbols-outlined">check_circle</span>
+        
+                                            <% } else {  %>
+                                                <!-- Non -->
+                                                <span class="material-symbols-outlined">cancel</span>
+                                            <% }  %>
+                                        </td>
+                                        <td class="col_description">
+                                            <%const tabDescription = coffee.description.split(" "); 
+                                               for (let index = 0; index < 10; index++) 
+                                               {
+                                            %>
+                                                <%=tabDescription[index]%>
+                                            <%}%>
+                                            <% if (tabDescription.length > 10) {%>...    
+                                            <%}%>    
+                                        </td>
+                                        <td class="col_photo">
+                                            <img src="/images/coffees/<%= coffee.image %>" alt="Image <%= coffee.name %>">
+                                        </td>
+
+                                        <td>
+                                            <select name="selectActions" class="selectActions" id="selectActions_<%= coffee.id %>">...
+                                                <option value="" selected disabled>...</option>
+                                                <option value="delete">Supprimer</option>
+                                                <option value="modify">Modifier</option>
+                                            </select>
+                                        </td>
+                                        
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </form>
+                </section>
+
+                <div class ="divReturnButton">
+                    <a href="/" class="btn">Retour à l'accueil</a>
+                </div>
+
+            </main>
+                
+            <%- include('../../partials/footer') %>
+        </div> <!-- close container -->
+    </body>
+</html>

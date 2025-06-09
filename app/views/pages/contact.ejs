@@ -10,44 +10,47 @@
     </head>
 
     <body>
-        <div id="container">
-
-        <header class="header">
-            <%- include('../partials/header') %>
-        </header>
-        
-        <main class="main">
-            <!-- Modify class from active link in the menubar -->
-        <script> 
+         <!-- Modify class from active link in the menubar -->
+         <script> 
             //Defer does not work!
             document.addEventListener('DOMContentLoaded', function() {
                 addActiveLinkMenu("#lien-contact");
             });
         </script>
-            <section class="contact">
-                <h2>Informations de contact</h2>
-                <form  class="contact-form" method = "POST" action="/saveContact">
-                    
-                    <div class="form-group">
-                        <label for="name"> Nom :</label>
-                        <input type="text" id = "name" name = "name" placeholder = "Louise Dupont">
-                    </div>
+        
+        <div id="container">
 
-                    <div class="form-group">
-                        <label for="email">Email :</label>
-                        <input type="email" id = "email" name = "email" placeholder = "louise.dupont@gmx.fr" required>
-                    </div>
+            <header class="header">
+                <%- include('../partials/header') %>
+            </header>
+            
+            <main class="main">
+           
+                <section class="contact">
+                    <h2>Informations de contact</h2>
+                    <form  class="contact-form" method = "POST" action="/saveContact">
+                        
+                        <div class="form-group">
+                            <label for="name"> Nom :</label>
+                            <input type="text" id = "name" name = "name" placeholder = "Louise Dupont">
+                        </div>
 
-                    <button type="submit" class="submit-button"> Enregistrer</button>
-                </form>
-            </section>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="email" id = "email" name = "email" placeholder = "louise.dupont@gmx.fr" required>
+                        </div>
 
-            <div class ="divReturnButton">
-                <a href="/" class="btn">Retour à l'accueil</a>
-            </div>
+                        <button type="submit" class="submit-button"> Enregistrer</button>
+                    </form>
+                </section>
 
-        </main>
-               
-        <%- include('../partials/footer') %>
+                <div class ="divReturnButton">
+                    <a href="/" class="btn">Retour à l'accueil</a>
+                </div>
+
+            </main>
+                
+            <%- include('../partials/footer') %>
+        </div> <!-- close container -->
     </body>
 </html>
